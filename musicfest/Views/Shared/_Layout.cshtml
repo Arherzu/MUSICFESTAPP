@@ -6,12 +6,25 @@
     <title>@ViewData["Title"] - musicfest</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+		html, body {
+                background-color: #fff;
+                color: #000;
+                font-family: 'Nunito', sans-serif;
+                font-weight: 100;
+                height: 100vh;
+                margin: 0;
+        }
+		.centrado{text-align:center; background: #1C1F24; color: #fff;padding:20px;}
+		div{width:100%;}
+		center{margin:16px 0;}
+	</style>
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">musicfest</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="https://localhost:5001/images/logo.jpeg" width="120px" alt="" /></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -19,16 +32,18 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Nosotros">Nosotros</a>
                         </li>
                     </ul>
+                    
                     <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
+        <div><img style="display:block;margin:auto; padding:20px;" src="https://localhost:5001/images/buscar.jpeg" alt="" /></div>
     </header>
     <div class="container">
         <main role="main" class="pb-3">
@@ -36,9 +51,10 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer>
         <div class="container">
-            &copy; 2021 - musicfest - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <div class="centrado"><img src="https://localhost:5001/images/redes.jpeg" width="120px" alt="" />
+            <p>Desarrollado por el grupo Verde - Curso Programacion I - 2021</p></div>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

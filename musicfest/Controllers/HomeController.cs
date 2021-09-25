@@ -23,7 +23,7 @@ namespace musicfest.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Nosotros()
         {
             return View();
         }
