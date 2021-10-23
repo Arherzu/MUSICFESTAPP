@@ -12,7 +12,7 @@ using musicfest.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
+using Npgsql.EntityFrameworkCore.PostgreSQL;
 namespace musicfest
 {
     public class Startup
@@ -27,9 +27,13 @@ namespace musicfest
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //services.AddDbContext<ApplicationDbContext>(options =>
+                //options.UseSqlite(
+                    //Configuration.GetConnectionString("DefaultConnection")));
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlite(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                options.UseNpgsql(
+                    Configuration.GetConnectionString("PostgressConnection")));  
+
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
