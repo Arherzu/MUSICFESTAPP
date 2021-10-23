@@ -4,6 +4,7 @@ using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace musicfest.Data
 {
     public class ApplicationDbContext : IdentityDbContext
@@ -12,5 +13,7 @@ namespace musicfest.Data
             : base(options)
         {
         }
+
+         public DbSet<musicfest.Models.Contacto> Contactos { get; set; }
     }
 }

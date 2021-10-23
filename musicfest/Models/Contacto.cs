@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace musicfest.Models
 {
@@ -11,18 +13,16 @@ namespace musicfest.Models
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("id")]
-        public int Id { get; set; }
-
+        public int ID { get; set; }
         
         [Column("nombrecompleto")]
         public string nombre { get; set; }
-        [Column("nombrecompleto")]
-        public string nombre { get; set; }
         
-        [Column("apellido paterno")]
+        
+        [Column("apellido_paterno")]
         public string apellido_paterno { get; set; }
 
-        [Column("apellido materno")]
+        [Column("apellido_materno")]
         public string apellido_materno { get; set; }
 
         [EmailAddress]
@@ -38,6 +38,9 @@ namespace musicfest.Models
         
         [Column("nacionalidad")]
         public string nacionalidad { get; set; }
+
+        [Column("mensaje")]
+        public string Mensaje { get; set; }
 
      }
 }
