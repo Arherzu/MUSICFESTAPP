@@ -41,6 +41,8 @@ namespace musicfest.Models
 
         [Column("mensaje")]
         public string Mensaje { get; set; }
-
+        
+        [Column("tecnologia")]
+        public string tecnologia { get; set; }
      }
 }
