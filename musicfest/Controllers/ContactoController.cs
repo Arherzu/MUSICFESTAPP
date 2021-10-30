@@ -29,7 +29,7 @@ namespace musicfest.Controllers
         public IActionResult Index()
         {
                                                  //Expresion   
-            var listContactos=_context.Contactos.OrderBy(s => s.ID).ToList();
+            var listContactos=_context.DataContactos.OrderBy(s => s.ID).ToList();
             return View("List",listContactos);
 
         }

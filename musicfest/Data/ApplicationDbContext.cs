@@ -15,6 +15,6 @@ namespace musicfest.Data
         {
         }
 
-         public DbSet<musicfest.Models.Contacto> Contactos { get; set; }
+         public DbSet<musicfest.Models.Contacto> DataContactos { get; set; }
     }
 }
