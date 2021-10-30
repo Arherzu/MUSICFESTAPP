@@ -7,27 +7,26 @@
 
 <h3>Editar Proforma</h3>
 <hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="col-lg-6" style="float:none;margin:auto;">
+    
         <form asp-controller="Proforma" asp-action="Editar">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <input type="hidden" asp-for="UserID" />
             <input type="hidden" asp-for="Precio" />
-            <div class="form-group">
+            
                 <label asp-for="Cantidad" class="control-label"></label>
-                <input asp-for="Cantidad" class="form-control" />
+                <input asp-for="Cantidad" class="form-control rounded-pill bg-secondary text-white" />
                 <span asp-validation-for="Cantidad" class="text-danger"></span>
-            </div>
+            <br>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Actualizar" class="btn rounded-pill btn-dark btn-block" />
             </div>
         </form>
-    </div>
-</div>
 
-<div>
-    <a asp-action="Index">Regresar</a>
+    <div>
+        <a asp-action="Index">Regresar</a>
+    </div>
 </div>
 
 @section Scripts {
