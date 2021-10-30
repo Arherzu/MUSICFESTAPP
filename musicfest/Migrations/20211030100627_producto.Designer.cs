@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using musicfest.Data;
@@ -9,9 +10,10 @@ using musicfest.Data;
 namespace musicfest.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211030100627_producto")]
+    partial class producto
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -266,90 +268,6 @@ namespace musicfest.Migrations
                     b.ToTable("t_contacto");
                 });
 
-            modelBuilder.Entity("musicfest.Models.Detallepedido", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasColumnName("id")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<int>("Cantidad")
-                        .HasColumnType("integer");
-
-                    b.Property<decimal>("Precio")
-                        .HasColumnType("numeric");
-
-                    b.Property<int?>("ProductoId")
-                        .HasColumnType("integer");
-
-                    b.Property<int?>("pedidoID")
-                        .HasColumnType("integer");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("ProductoId");
-
-                    b.HasIndex("pedidoID");
-
-                    b.ToTable("t_detalle_pedido");
-                });
-
-            modelBuilder.Entity("musicfest.Models.Pago", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasColumnName("id")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<DateTime>("FechaPago")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<decimal>("MontoTotal")
-                        .HasColumnType("numeric");
-
-                    b.Property<string>("NombreTarjeta")
-                        .HasColumnType("text");
-
-                    b.Property<string>("NumeroTarjeta")
-                        .HasColumnType("text");
-
-                    b.Property<string>("UserID")
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("t_pago");
-                });
-
-            modelBuilder.Entity("musicfest.Models.Pedido", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasColumnName("id")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<string>("Estado")
-                        .HasColumnType("text");
-
-                    b.Property<decimal>("Total")
-                        .HasColumnType("numeric");
-
-                    b.Property<string>("UserID")
-                        .HasColumnType("text");
-
-                    b.Property<int?>("pagoId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("pagoId");
-
-                    b.ToTable("t_pedido");
-                });
-
             modelBuilder.Entity("musicfest.Models.Producto", b =>
                 {
                     b.Property<int>("Id")
@@ -381,36 +299,6 @@ namespace musicfest.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("t_producto");
-                });
-
-            modelBuilder.Entity("musicfest.Models.Proforma", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasColumnName("id")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<int>("Cantidad")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("Estado")
-                        .HasColumnType("text");
-
-                    b.Property<decimal>("Precio")
-                        .HasColumnType("numeric");
-
-                    b.Property<int?>("ProductoId")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("UserID")
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductoId");
-
-                    b.ToTable("t_proforma");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -462,39 +350,6 @@ namespace musicfest.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("musicfest.Models.Detallepedido", b =>
-                {
-                    b.HasOne("musicfest.Models.Producto", "Producto")
-                        .WithMany()
-                        .HasForeignKey("ProductoId");
-
-                    b.HasOne("musicfest.Models.Pedido", "pedido")
-                        .WithMany()
-                        .HasForeignKey("pedidoID");
-
-                    b.Navigation("pedido");
-
-                    b.Navigation("Producto");
-                });
-
-            modelBuilder.Entity("musicfest.Models.Pedido", b =>
-                {
-                    b.HasOne("musicfest.Models.Pago", "pago")
-                        .WithMany()
-                        .HasForeignKey("pagoId");
-
-                    b.Navigation("pago");
-                });
-
-            modelBuilder.Entity("musicfest.Models.Proforma", b =>
-                {
-                    b.HasOne("musicfest.Models.Producto", "Producto")
-                        .WithMany()
-                        .HasForeignKey("ProductoId");
-
-                    b.Navigation("Producto");
                 });
 #pragma warning restore 612, 618
         }
