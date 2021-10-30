@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using musicfest.Models;
 
 namespace musicfest.Data
 {
@@ -12,5 +13,6 @@ namespace musicfest.Data
             : base(options)
         {
         }
+        public DbSet<musicfest.Models.Contacto> DataContactos { get; set; }
     }
 }

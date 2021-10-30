@@ -1,0 +1,48 @@
+@model musicfest.Models.Contacto
+@{
+    ViewData["Title"] = "Contacto";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="col-lg-6" style="float:none;margin:auto;">
+    <div class="alert alert-success" role="alert">@ViewData["Message"]</div>
+    <h3>Ingresa tus datos</h3>
+
+    <form asp-controller="Contacto" asp-action="Create">
+        <label asp-for="Nombre" class="form-label">Nombres</label>
+        <input asp-for="Nombre" class="form-control rounded-pill bg-secondary text-white" />
+        <br>
+        <label asp-for="Ape_paterno" class="control-label">Apellido paterno</label>
+        <input asp-for="Ape_paterno" class="form-control rounded-pill bg-secondary text-white" />
+        <br>
+        <label asp-for="Ape_materno" class="control-label">Apellido materno</label>
+        <input asp-for="Ape_materno" class="form-control rounded-pill bg-secondary text-white" />
+        <br>
+        <label asp-for="Correo" class="control-label">Correo Electrónico</label>
+        <input asp-for="Correo" class="form-control rounded-pill bg-secondary text-white" />
+        <br>
+        <label asp-for="Celular" class="control-label">Celular</label>
+        <input asp-for="Celular" class="form-control rounded-pill bg-secondary text-white" />
+        <br>
+        <label asp-for="Direccion" class="control-label">Dirección</label>
+        <input asp-for="Direccion" class="form-control rounded-pill bg-secondary text-white" />
+        <br>
+        <label asp-for="Distrito" class="control-label">Distrito</label>
+        <input asp-for="Distrito" class="form-control rounded-pill bg-secondary text-white" />
+        <br>
+        <label asp-for="Nacionalidad" class="control-label">Nacionalidad</label>
+        <input asp-for="Nacionalidad" class="form-control rounded-pill bg-secondary text-white" />
+        <br>
+        <label asp-for="Mensaje" class="control-label">Mensaje</label>
+        <textarea asp-for="Mensaje" class="form-control rounded-pill bg-secondary text-white"></textarea>
+        <br>
+
+        <div class="form-group">
+            <button type="submit" class="btn rounded-pill btn-dark btn-block">Enviar</button> 
+        </div>              
+    </form>
+    <div>
+        <a asp-action="Index">Regresar</a>
+    </div>
+</div>

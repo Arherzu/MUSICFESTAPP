@@ -10,7 +10,7 @@ using musicfest.Data;
 namespace musicfest.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211023081849_inicial")]
+    [Migration("20211030085941_inicial")]
     partial class inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -217,6 +217,55 @@ namespace musicfest.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("musicfest.Models.Contacto", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("id")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<string>("Ape_materno")
+                        .HasColumnType("text")
+                        .HasColumnName("apellido_materno");
+
+                    b.Property<string>("Ape_paterno")
+                        .HasColumnType("text")
+                        .HasColumnName("apellido_paterno");
+
+                    b.Property<int>("Celular")
+                        .HasColumnType("integer")
+                        .HasColumnName("celular");
+
+                    b.Property<string>("Correo")
+                        .HasColumnType("text")
+                        .HasColumnName("correo");
+
+                    b.Property<string>("Direccion")
+                        .HasColumnType("text")
+                        .HasColumnName("direccion");
+
+                    b.Property<string>("Distrito")
+                        .HasColumnType("text")
+                        .HasColumnName("distrito");
+
+                    b.Property<string>("Mensaje")
+                        .HasColumnType("text")
+                        .HasColumnName("mensaje");
+
+                    b.Property<string>("Nacionalidad")
+                        .HasColumnType("text")
+                        .HasColumnName("nacionalidad");
+
+                    b.Property<string>("Nombre")
+                        .HasColumnType("text")
+                        .HasColumnName("nombrecompleto");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("t_contacto");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

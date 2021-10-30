@@ -25,9 +25,9 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" style="background: #e6e6e6;">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="https://localhost:5001/images/logo.jpeg" width="120px" alt="" /></a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/logo-guitarra.png" width="120px" alt="" /></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -40,13 +40,16 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Nosotros">Nosotros</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Contacto" asp-action="Index">Contacto</a>
+                        </li>
                     </ul>
                     
                     <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
-        <div><img style="display:block;margin:auto; padding:20px;" src="https://localhost:5001/images/buscar.jpeg" alt="" /></div>
+        <div><img style="display:block;margin:auto; padding:20px;" src="~/images/buscar.jpeg" alt="" /></div>
     </header>
     <div class="container">
         <main role="main" class="pb-3">
@@ -56,7 +59,7 @@
 
     <footer>
         <div class="container">
-            <div class="centrado"><img src="https://localhost:5001/images/redes.jpeg" width="120px" alt="" />
+            <div class="centrado"><img src="~/images/redes.jpeg" width="120px" alt="" />
             <p>Desarrollado por el grupo Verde - Curso Programacion I - 2021</p></div>
         </div>
     </footer>

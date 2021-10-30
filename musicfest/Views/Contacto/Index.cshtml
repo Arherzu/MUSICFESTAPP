@@ -1,0 +1,82 @@
+@model IEnumerable<musicfest.Models.Contacto>
+@{
+    ViewData["Title"] = "Contacto";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-action="Create">Crear Nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ape_paterno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ape_materno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Correo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Celular)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Distrito)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nacionalidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mensaje)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                <a class="btn btn-primary" asp-action="Editar" asp-route-id="@item.Id">Editar</a>
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ape_paterno)
+            </td>
+              <td>
+                @Html.DisplayFor(modelItem => item.Ape_materno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Correo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Celular)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Distrito)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nacionalidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mensaje)
+            </td>
+
+        </tr>
+}
+    </tbody>
+</table>

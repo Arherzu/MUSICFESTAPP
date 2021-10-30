@@ -48,6 +48,27 @@ namespace musicfest.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "t_contacto",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    nombrecompleto = table.Column<string>(type: "text", nullable: true),
+                    apellido_paterno = table.Column<string>(type: "text", nullable: true),
+                    apellido_materno = table.Column<string>(type: "text", nullable: true),
+                    correo = table.Column<string>(type: "text", nullable: true),
+                    celular = table.Column<int>(type: "integer", nullable: false),
+                    direccion = table.Column<string>(type: "text", nullable: true),
+                    distrito = table.Column<string>(type: "text", nullable: true),
+                    nacionalidad = table.Column<string>(type: "text", nullable: true),
+                    mensaje = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_t_contacto", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -207,6 +228,9 @@ namespace musicfest.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "t_contacto");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
