@@ -1,0 +1,60 @@
+@model IEnumerable<musicfest.Models.Contacto>
+@{
+    ViewData["Title"] = "Contacto";
+}
+
+<!-- bootstrap Navbar  !-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<!--
+<h2>Lista Productos</h2>
+!-->
+<h2>Lista de nuestros Clientes</h2>
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+        
+    </thead>
+    <tbody>
+
+@foreach (var item in Model)
+{
+        <tr>
+            <th scope="row">
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.apellido_paterno)
+            </td>
+             
+            <td>
+                @Html.DisplayFor(modelItem => item.apellido_materno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.celular)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.direccion)
+            </td>            
+            <td>
+                @Html.DisplayFor(modelItem => item.distrito)
+            </td>  
+            <td>
+                @Html.DisplayFor(modelItem => item.nacionalidad)
+            </td>       
+            <td>
+                @Html.DisplayFor(modelItem => item.tecnologia)
+            </td>    
+            <td>
+                @Html.DisplayFor(modelItem => item.Correo)
+            </td>                      
+        </tr>
+}        
+    </tbody>
+</table>

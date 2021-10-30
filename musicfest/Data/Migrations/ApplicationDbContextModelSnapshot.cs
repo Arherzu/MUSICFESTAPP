@@ -257,7 +257,7 @@ namespace musicfest.Data.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Contacto");
+                    b.ToTable("t_contactos");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

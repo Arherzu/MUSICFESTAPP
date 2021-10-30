@@ -28,9 +28,8 @@ namespace musicfest.Controllers
         //Ascendiente Menor a Mayor
         public IActionResult Index()
         {
-                                                 //Expresion   
-            var listContactos=_context.DataContactos.OrderBy(s => s.ID).ToList();
-            return View("List",listContactos);
+                                               //Expresion   
+            return View(_context.DataContactos.ToList());
 
         }
 
@@ -45,7 +44,7 @@ namespace musicfest.Controllers
 
             if (ModelState.IsValid)
             {
-                 objContacto.Mensaje = "Solicitud Registrada";
+                 objContacto.Correo = "Solicitud Registrada";
 
                 _context.Add(objContacto);
                 _context.SaveChanges();
@@ -54,7 +53,40 @@ namespace musicfest.Controllers
             }
             return View();
         }
+        public IActionResult Edit(int? id)
+        {
+            if(id == null){
+                return NotFound();
+            }
+            var contacto = _context.DataContactos.Find(id);
+            if(contacto == null){
+                return NotFound();
+            }
+            return View(contacto);
+        }
 
+        //POST: http://localhost:5000/Contacto/Edit/ graba contacto
+        [HttpPost]
+        public IActionResult Edit(int id, Contacto contacto)
+        {
+            if (ModelState.IsValid)
+            {
+                contacto.Correo = "Usuario Actualizado";
+                _context.Update(contacto);
+                _context.SaveChanges();
+            }
+            return View(contacto);
+        }
+
+
+        // GET: http://localhost:5000/Contacto/Delete/6 MUESTRA Contacto
+        public IActionResult Delete(int? id)
+        {
+            var contacto = _context.DataContactos.Find(id);
+            _context.DataContactos.Remove(contacto);
+            _context.SaveChanges();
+            return RedirectToAction(nameof(Index));
+        }
         // GET: http://localhost:5000/Contacto/Edit/6 MUESTRA Contacto
         
 

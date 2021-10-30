@@ -9,8 +9,8 @@ using musicfest.Data;
 namespace musicfest.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211030041515_ContactoMigration")]
-    partial class ContactoMigration
+    [Migration("20211030071244_t_contactosMigration")]
+    partial class t_contactosMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -259,7 +259,7 @@ namespace musicfest.Data.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Contacto");
+                    b.ToTable("t_contactos");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

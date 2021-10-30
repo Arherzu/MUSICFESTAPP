@@ -1,15 +1,12 @@
 @model musicfest.Models.Contacto
 @{
-    ViewData["Title"] = "Cliente";
-    
+    ViewData["Title"] = "Editar Usuario";
 }
 <h1>@ViewData["Title"]</h1>
-<h6>"Por favor complete los datos para registrar su solicitud"</h6>
-<br>
-<!--
-<img src="/images/gta-logo.jpg" height="300px" width="300px"><br/> -->
-<form asp-action="Create">
+
+<form asp-action="Edit">
   <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+  <input type="hidden" asp-for="ID" />
   <div class="form-group">
     <label name="nombre">Nombre:</label><br/>
     <input asp-for="nombre" class="form-control"/><br/>
@@ -20,40 +17,32 @@
     <input asp-for="apellido_paterno" class="form-control"/><br/>
     <span asp-validation-for="apellido_paterno" class="text-danger"></span>
   </div>
-    <div class="form-group">
+  <div class="form-group">
     <label name="apellido_materno">Apellido Materno:</label><br/>
     <input asp-for="apellido_materno" class="form-control"/><br/>
     <span asp-validation-for="apellido_materno" class="text-danger"></span>
   </div>
-
-    
-    <div class="form-group">
+  <div class="form-group">
     <label name="celular">Celular:</label><br/>
     <input asp-for="celular" class="form-control"/><br/>
     <span asp-validation-for="celular" class="text-danger"></span>
   </div>
-
-  
-    <div class="form-group">
+  <div class="form-group">
     <label name="direccion">Dirección :</label><br/>
     <input asp-for="direccion" class="form-control"/><br/>
     <span asp-validation-for="direccion" class="text-danger"></span>
   </div>
-
-    
-    <div class="form-group">
+  <div class="form-group">
     <label name="distrito">Distrito :</label><br/>
     <input asp-for="distrito" class="form-control"/><br/>
     <span asp-validation-for="distrito" class="text-danger"></span>
   </div>
-
-    <div class="form-group">
+  <div class="form-group">
     <label name="nacionalidad">Nacionalidad:</label><br/>
     <input asp-for="nacionalidad" class="form-control"/><br/>
     <span asp-validation-for="nacionalidad" class="text-danger"></span>
   </div>
-
-    <div class="form-group">
+  <div class="form-group">
     <label name="tecnologia">Tecnologia:</label><br/>
     <input asp-for="tecnologia" class="form-control"/><br/>
     <span asp-validation-for="tecnologia" class="text-danger"></span>
@@ -63,10 +52,9 @@
     <label name="Correo">Correo:</label><br/>
     <input asp-for="Correo" type="Correo" class="form-control"/><br/>
   </div>
-
-  <input type="submit" value="Enviar" class="btn btn-primary" />
+  
+  <input type="submit" value="Save" class="btn btn-primary" />
 </form>
 <h1> 
-   <!--@Html.DisplayNameFor(model => model.Correo)-->
     @Html.DisplayFor(model => model.Correo)
 </h1>

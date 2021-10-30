@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace musicfest.Models
 {
-   [Table("Contacto")]
+   [Table("t_contactos")]
     public class Contacto
     {
 
@@ -39,8 +39,8 @@ namespace musicfest.Models
         [Column("nacionalidad")]
         public string nacionalidad { get; set; }
 
-        [Column("mensaje")]
-        public string Mensaje { get; set; }
+        [Column("correo")]
+        public string Correo { get; set; }
         
         [Column("tecnologia")]
         public string tecnologia { get; set; }
