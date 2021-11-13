@@ -27,6 +27,6 @@ jobs:
 
     - name: Publish
       run: |
-        heroku container:push web -a $HEROKU_API_NAME
-        heroku container:release web -a $HEROKU_API_NAME
+        heroku container:push web -a $HEROKU_APP_NAME
+        heroku container:release web -a $HEROKU_APP_NAME
       working-directory: musicfest
