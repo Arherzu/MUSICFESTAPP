@@ -1,0 +1,47 @@
+GET https://localhost:5001/api/productos HTTP/1.0
+Accept: application/json
+
+GET https://localhost:5001/api/productos/2 HTTP/1.0
+Accept: application/json
+
+POST https://localhost:5001/api/productos HTTP/1.0
+Content-Type: application/json
+
+{
+  "nombre": "guitarra de rock and roll",
+  "descripcion": "guitarra para rockeros latinos",
+  "precio": 100,
+  "imagen": "image1.jpg",
+  "estado": "Nuevo"
+}
+
+POST https://api.sendgrid.com/v3/mail/send HTTP/1.0
+Authorization: Bearer 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
+Content-Type: application/json
+
+{
+  "categories": [
+    "demo"
+  ],
+  "from": {
+    "email": "freddy_flores2@usmp.pe",
+    "name": "Freddy "
+  },
+  "personalizations": [
+    {
+      "to": [
+        {
+          "email": "floresfredy@yahoo.com",
+          "name": "Freddy F"
+        }
+      ],
+      "subject": "Hola"
+    }
+  ],
+  "content": [
+    {
+      "type": "text/plain",
+      "value": "Probando envio de mensajes con sendgrid!"
+    }
+  ],  
+}
